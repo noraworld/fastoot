@@ -1,0 +1,7 @@
+node_modules
+src/lib
+/bootstrap.min.css
+/options.html
+/options.js
+/popup.html
+/popup.js

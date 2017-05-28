@@ -1,0 +1,33 @@
+{
+  "name": "fastoot",
+  "version": "0.0.1",
+  "description": "Quickly post your status to Mastodon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noraworld/fastoot.git"
+  },
+  "keywords": [
+    "mastodon",
+    "toot",
+    "fastoot"
+  ],
+  "author": "noraworld",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noraworld/fastoot/issues"
+  },
+  "homepage": "https://github.com/noraworld/fastoot#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
