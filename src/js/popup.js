@@ -47,7 +47,7 @@
       }
     }
 
-    xhr.send("status=" + content);
+    xhr.send("status=" + encodeURIComponent(content));
   }
 
 })();
