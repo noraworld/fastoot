@@ -1,0 +1,23 @@
+.container {
+  width: 500px;
+}
+
+.row {
+  margin: 15px 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.clearfix {
+  overflow: auto;
+}

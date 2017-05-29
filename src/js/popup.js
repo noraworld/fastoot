@@ -13,11 +13,20 @@
   });
 
   document.querySelector("#toot").addEventListener("click", toot);
-  document.addEventListener("keydown", function(event) {
+  document.addEventListener("keyup", function(event) {
     if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter') {
       toot();
     }
+
+    count();
   });
+
+  function count() {
+    let content = document.querySelector("#content").value;
+    let left = 500 - content.length;
+
+    document.querySelector("#words").textContent = left;
+  }
 
   function toot() {
     let xhr = new XMLHttpRequest();
