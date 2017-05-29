@@ -53,20 +53,28 @@
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function(event) {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         document.querySelector("#content").value = "";
+        saveDraft();
+
         let status = document.querySelector("#status");
+        status.classList.remove("text-danger");
+        status.classList.add("text-success");
         status.textContent = "Tootted successfully!";
         setTimeout(function() {
           status.textContent = "";
+          status.classList.remove("text-success");
         }, 1500);
       }
       else {
         let status = document.querySelector("#status");
+        status.classList.remove("text-success");
+        status.classList.add("text-danger");
         status.textContent = "Toot failed.";
         setTimeout(function() {
           status.textContent = "";
+          status.classList.remove("text-danger");
         }, 1500);
       }
     }
@@ -76,7 +84,6 @@
 
   function saveDraft() {
     let content = document.querySelector("#content").value;
-    console.log(content);
     chrome.storage.sync.set({
       draft: content
     });
