@@ -5,21 +5,25 @@
   let settings = {
     baseurl: "",
     accessToken: "",
+    draft: "",
   };
 
   chrome.storage.sync.get(settings, function(storage) {
     settings.baseurl = storage.baseurl;
     settings.accessToken = storage.accessToken;
+    settings.draft = storage.draft;
+
+    document.querySelector("#content").value = settings.draft;
   });
 
   document.querySelector("#toot").addEventListener("click", toot);
-  document.addEventListener("keyup", function(event) {
+  document.addEventListener("keydown", function(event) {
     if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter') {
       toot();
     }
-
-    count();
+    saveDraft();
   });
+  document.addEventListener("keyup", count);
 
   function count() {
     let content = document.querySelector("#content").value;
@@ -57,6 +61,14 @@
     }
 
     xhr.send("status=" + encodeURIComponent(content));
+  }
+
+  function saveDraft() {
+    let content = document.querySelector("#content").value;
+    console.log(content);
+    chrome.storage.sync.set({
+      draft: content
+    });
   }
 
 })();
