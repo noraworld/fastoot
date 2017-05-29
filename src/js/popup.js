@@ -14,16 +14,27 @@
     settings.draft = storage.draft;
 
     document.querySelector("#content").value = settings.draft;
+    init();
   });
 
-  document.querySelector("#toot").addEventListener("click", toot);
-  document.addEventListener("keydown", function(event) {
-    if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter') {
-      toot();
-    }
-    saveDraft();
-  });
-  document.addEventListener("keyup", count);
+  function init() {
+    validateCount();
+    count();
+
+    document.querySelector("#toot").addEventListener("click", toot);
+    document.addEventListener("keyup", function(event) {
+      count();
+
+      validateCount();
+    });
+    document.addEventListener("keydown", function(event) {
+      if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter' && validateCount()) {
+        toot();
+      }
+
+      saveDraft();
+    });
+  }
 
   function count() {
     let content = document.querySelector("#content").value;
@@ -69,6 +80,28 @@
     chrome.storage.sync.set({
       draft: content
     });
+  }
+
+  function validateCount() {
+    let content = document.querySelector("#content")
+    if (content.value.length <= 0 || content.value.length > 500) {
+      disableTootButton();
+      return false;
+    }
+    else {
+      enableTootButton();
+      return true;
+    }
+  }
+
+  function disableTootButton() {
+    let tootButton = document.querySelector("#toot");
+    tootButton.setAttribute("disabled", "");
+  }
+
+  function enableTootButton() {
+    let tootButton = document.querySelector("#toot");
+    tootButton.removeAttribute("disabled");
   }
 
 })();
