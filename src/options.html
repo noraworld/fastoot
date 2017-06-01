@@ -6,18 +6,16 @@
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 <body>
-  <div class="input-group">
-    <span class="input-group-addon" id="sizing-addon2">Instance URL</span>
-    <input id="baseurl" type="text" class="form-control" placeholder="https://mastodon.noraworld.jp" aria-describedby="sizing-addon2">
-  </div>
 
-  <div class="input-group">
-    <span class="input-group-addon" id="sizing-addon2">Access Token</span>
-    <input id="access-token" type="text" class="form-control" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" aria-describedby="sizing-addon2">
-  </div>
+  <form id="auth" class="form-inline mb-2 mr-sm-2 mb-sm-0">
+    <div class="input-group">
+      <div class="input-group-addon">Instance URL</div>
+      <input id="domain" type="url" class="form-control" placeholder="https://mastodon.noraworld.jp">
+    </div>
 
-  <button id="save" type="button" class="btn btn-primary">Save</button>
-  <span id="status"></span>
+    <button id="button" type="submit" class="btn btn-primary">Auth</button>
+    <span id="status"></span>
+  </form>
 
   <script type="text/javascript" src="options.js"></script>
 </body>

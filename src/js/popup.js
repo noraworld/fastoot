@@ -3,14 +3,14 @@
   "use strict";
 
   let settings = {
-    baseurl: "",
-    accessToken: "",
+    domain: "",
+    token: {},
     draft: "",
   };
 
   chrome.storage.sync.get(settings, function(storage) {
-    settings.baseurl = storage.baseurl;
-    settings.accessToken = storage.accessToken;
+    settings.domain = storage.domain;
+    settings.token = storage.token;
     settings.draft = storage.draft;
 
     document.querySelector("#content").value = settings.draft;
@@ -45,13 +45,13 @@
 
   function toot() {
     let xhr = new XMLHttpRequest();
-    let baseurl = settings.baseurl + "/api/v1/statuses";
-    let accessToken = settings.accessToken;
+    let url = settings.domain + "/api/v1/statuses";
+    let token = settings.token;
     let content = document.querySelector("#content").value;
 
-    xhr.open("POST", baseurl, true);
+    xhr.open("POST", url, true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
+    xhr.setRequestHeader("Authorization", "Bearer " + token.access_token);
 
     xhr.onreadystatechange = function(event) {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {

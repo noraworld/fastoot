@@ -6,3 +6,5 @@ src/lib
 /popup.html
 /popup.js
 /popup.css
+/auth.html
+/auth.js
