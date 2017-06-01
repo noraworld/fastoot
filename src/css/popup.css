@@ -1,5 +1,5 @@
 .container {
-  width: 500px;
+  width: 600px;
 }
 
 .row {
@@ -8,6 +8,10 @@
 
 textarea {
   resize: none;
+}
+
+#content::-webkit-input-placeholder {
+  opacity: 0.4;
 }
 
 button {

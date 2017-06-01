@@ -30,7 +30,7 @@
 
   function getAuthorizationCode() {
     let xhr = new XMLHttpRequest();
-    const clientName = "fastoot";
+    const clientName = "Fastoot";
     const redirectURI = chrome.extension.getURL("auth.html");
     const scope = "write";
     let domain = document.querySelector("#domain").value;

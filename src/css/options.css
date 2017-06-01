@@ -1,0 +1,19 @@
+body {
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+#domain::-webkit-input-placeholder {
+  opacity: 0.4;
+}
+
+.container {
+  width: 800px;
+}
+
+.input-group {
+  padding-left: 0;
+}

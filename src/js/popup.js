@@ -33,6 +33,7 @@
       }
 
       saveDraft();
+      refleshStatus();
     });
   }
 
@@ -62,6 +63,7 @@
         status.classList.remove("text-danger");
         status.classList.add("text-success");
         status.textContent = "Tootted successfully!";
+
         setTimeout(function() {
           status.textContent = "";
           status.classList.remove("text-success");
@@ -71,11 +73,12 @@
         let status = document.querySelector("#status");
         status.classList.remove("text-success");
         status.classList.add("text-danger");
-        status.textContent = "Toot failed.";
-        setTimeout(function() {
-          status.textContent = "";
-          status.classList.remove("text-danger");
-        }, 1500);
+        if (settings.token.access_token) {
+          status.textContent = "Toot failed.";
+        }
+        else {
+          status.innerHTML = 'You need to auth this app from <a href="/options.html" target="_blank">options page</a>';
+        }
       }
     }
 
@@ -109,6 +112,13 @@
   function enableTootButton() {
     let tootButton = document.querySelector("#toot");
     tootButton.removeAttribute("disabled");
+  }
+
+  function refleshStatus() {
+    let status = document.querySelector("#status");
+    status.textContent = "";
+    status.classList.remove("text-success");
+    status.classList.remove("text-danger");
   }
 
 })();

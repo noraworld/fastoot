@@ -2,20 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>fastoot options</title>
+  <title>Fastoot options</title>
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="options.css">
 </head>
 <body>
 
-  <form id="auth" class="form-inline mb-2 mr-sm-2 mb-sm-0">
-    <div class="input-group">
-      <div class="input-group-addon">Instance URL</div>
-      <input id="domain" type="url" class="form-control" placeholder="https://mastodon.noraworld.jp">
-    </div>
+  <div class="container">
+    <h3>Fastoot</h3>
 
-    <button id="button" type="submit" class="btn btn-primary">Auth</button>
-    <span id="status"></span>
-  </form>
+    <form id="auth" class="form-inline">
+      <div class="input-group col-10">
+        <div class="input-group-addon">Instance URL</div>
+        <input id="domain" type="url" class="form-control" placeholder="https://mastodon.noraworld.jp">
+      </div>
+
+      <button id="button" type="submit" class="btn btn-primary col">Auth</button>
+      <span id="status"></span>
+    </form>
+  </div>
 
   <script type="text/javascript" src="options.js"></script>
 </body>
