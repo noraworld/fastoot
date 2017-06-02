@@ -12,7 +12,7 @@
   load();
 
   function load() {
-    chrome.storage.sync.get(defaults, function(storage) {
+    chrome.storage.local.get(defaults, function(storage) {
       document.querySelector("#domain").value = storage.domain;
 
       toggleAuthAndRevoke();
@@ -33,7 +33,7 @@
   }
 
   function save() {
-    chrome.storage.sync.set({
+    chrome.storage.local.set({
       domain: document.querySelector("#domain").value,
       visibility: document.querySelector("#visibility").value
     }, function() {
@@ -72,7 +72,7 @@
         msg.textContent = "";
 
         let response = JSON.parse(xhr.response);
-        chrome.storage.sync.set({
+        chrome.storage.local.set({
           domain: document.querySelector("#domain").value,
           client: response
         }, function() {
@@ -90,7 +90,7 @@
   }
 
   function revokeAuthorizationCode() {
-    chrome.storage.sync.set({
+    chrome.storage.local.set({
       token: {}
     }, function() {
       let msg = document.querySelector("#instance-url-msg");
@@ -119,7 +119,7 @@
   }
 
   function toggleAuthAndRevoke() {
-    chrome.storage.sync.get(defaults, function(storage) {
+    chrome.storage.local.get(defaults, function(storage) {
       if (storage.token.access_token) {
         let button = document.querySelector("#button");
 

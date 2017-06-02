@@ -9,7 +9,7 @@
     visibility: "public",
   };
 
-  chrome.storage.sync.get(settings, function(storage) {
+  chrome.storage.local.get(settings, function(storage) {
     settings.domain = storage.domain;
     settings.token = storage.token;
     settings.draft = storage.draft;
@@ -126,7 +126,7 @@
 
   function saveDraft() {
     let content = document.querySelector("#content").value;
-    chrome.storage.sync.set({
+    chrome.storage.local.set({
       draft: content
     });
   }

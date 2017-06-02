@@ -15,7 +15,7 @@
   }
 
   function getAccessToken() {
-    chrome.storage.sync.get(defaults, function(storage) {
+    chrome.storage.local.get(defaults, function(storage) {
       let xhr = new XMLHttpRequest();
       let domain = storage.domain;
       let redirectURI = storage.client.redirect_uri;
@@ -29,7 +29,7 @@
 
       xhr.onreadystatechange = function(event) {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-          chrome.storage.sync.set({
+          chrome.storage.local.set({
             token: JSON.parse(xhr.response)
           }, function() {
             window.location.href = chrome.extension.getURL("options.html");
