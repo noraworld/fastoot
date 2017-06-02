@@ -85,7 +85,7 @@
         let status = document.querySelector("#status");
         status.classList.remove("text-danger");
         status.classList.add("text-success");
-        status.textContent = "Tootted successfully!";
+        status.textContent = "Tooted successfully!";
 
         setTimeout(function() {
           status.textContent = "";
