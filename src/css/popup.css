@@ -3,7 +3,7 @@ body, #content, #toot, select, #cw-label, #spoiler-text {
 }
 
 .container {
-  width: 600px;
+  width: 620px;
 }
 
 .row {
@@ -15,7 +15,7 @@ body, #content, #toot, select, #cw-label, #spoiler-text {
 }
 
 #words {
-  padding-right: 10px;
+  padding: 0 10px;
 }
 
 #toot {
