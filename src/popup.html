@@ -12,6 +12,10 @@
       <div class="col-12">
         <textarea id="content" class="form-control" rows="10" placeholder="What is on your mind?"></textarea>
       </div>
+      <div class="col-12">
+        <div id="cw-hide-area"></div>
+        <input type="text" id="spoiler-text" class="form-control" placeholder="Content warning" autocomplete="off">
+      </div>
     </div>
     <div class="row">
       <div class="col-12">
@@ -23,7 +27,10 @@
               <option value="private">private</option>
               <option value="direct">direct</option>
             </select>
+            <input type="checkbox" id="cw">
+            <label for="cw" id="cw-label">CW</label>
           </div>
+
           <div class="pull-right">
             <strong><span id="status"></span></strong>
             <strong><span id="words"></span></strong>

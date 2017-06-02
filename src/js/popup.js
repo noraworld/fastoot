@@ -25,16 +25,15 @@
     count();
 
     document.querySelector("#toot").addEventListener("click", toot);
+    document.querySelector("#cw").addEventListener("change", toggleSpoilerField);
     document.addEventListener("keyup", function(event) {
       count();
-
       validateCount();
     });
     document.addEventListener("keydown", function(event) {
       if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter' && validateCount()) {
         toot();
       }
-
       saveDraft();
       refleshStatus();
     });
@@ -53,6 +52,7 @@
     let token = settings.token;
     let content = document.querySelector("#content").value;
     let visibility = document.querySelector("#visibility").value;
+    let spoiler = document.querySelector("#spoiler-text").value;
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -62,6 +62,9 @@
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
         document.querySelector("#content").value = "";
         saveDraft();
+        document.querySelector("#spoiler-text").value = "";
+        document.querySelector("#cw").checked = false;
+        hideSpoiler();
 
         let status = document.querySelector("#status");
         status.classList.remove("text-danger");
@@ -86,7 +89,14 @@
       }
     }
 
-    xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility);
+    let isChecked = document.querySelector("#cw").checked;
+    if (isChecked) {
+      xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility + "&spoiler_text=" + encodeURIComponent(spoiler));
+    }
+    else {
+      xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility);
+    }
+
   }
 
   function saveDraft() {
@@ -106,6 +116,26 @@
       enableTootButton();
       return true;
     }
+  }
+
+  function toggleSpoilerField() {
+    let isChecked = document.querySelector("#cw").checked;
+    if (isChecked) {
+      showSpoiler();
+      document.querySelector("#cw-hide-area").style.height = "0";
+    }
+    else {
+      hideSpoiler();
+      document.querySelector("#cw-hide-area").style.height = "48px";
+    }
+  }
+
+  function showSpoiler() {
+    document.querySelector("#spoiler-text").style.display = "block";
+  }
+
+  function hideSpoiler() {
+    document.querySelector("#spoiler-text").style.display = "none";
   }
 
   function disableTootButton() {

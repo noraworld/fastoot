@@ -1,4 +1,4 @@
-body, #content, #toot, select {
+body, #content, #toot, select, #cw-label, #spoiler-text {
   font-family: "BlinkMacSystemFont";
 }
 
@@ -10,7 +10,7 @@ body, #content, #toot, select {
   margin: 15px 0;
 }
 
-#content::-webkit-input-placeholder {
+#content::-webkit-input-placeholder, #spoiler-text::-webkit-input-placeholder {
   opacity: 0.4;
 }
 
@@ -20,6 +20,40 @@ body, #content, #toot, select {
 
 #toot {
   letter-spacing: 0.7px;
+}
+
+#visibility, #cw, #cw-label {
+  user-select: none;
+}
+
+#cw {
+  display: none;
+}
+
+#cw:checked ~ #cw-label {
+  color: #f0ad4e;
+  border: 2px solid #f0ad4e;
+  padding: 0 5px;
+}
+
+#cw-label {
+  cursor: pointer;
+  margin: 0 10px;
+  border: 1px solid grey;
+  padding: 1px 6px;
+  border-radius: 5px;
+  color: grey;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#spoiler-text {
+  margin-top: 10px;
+  display: none;
+}
+
+#cw-hide-area {
+  height: 48px;
 }
 
 .pull-left {
