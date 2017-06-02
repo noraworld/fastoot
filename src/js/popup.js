@@ -48,16 +48,21 @@
   }
 
   function validateCount() {
-    let content = document.querySelector("#content");
-    let spoiler = document.querySelector("#spoiler-text");
-    let count = content.value.length + spoiler.value.length;
+    let content = document.querySelector("#content").value.length;
+    let spoiler = document.querySelector("#spoiler-text").value.length;
+    let count = content + spoiler;
 
     if (count <= 0 || count > 500) {
       disableTootButton();
+      warningCount();
       return false;
+    }
+    else if (content <= 0) {
+      disableTootButton();
     }
     else {
       enableTootButton();
+      clearWarningCount();
       return true;
     }
   }
@@ -166,6 +171,9 @@
   function disableTootButton() {
     let tootButton = document.querySelector("#toot");
     tootButton.setAttribute("disabled", "");
+  }
+
+  function warningCount() {
     let words = document.querySelector("#words");
 
     if (words.textContent !== "500") {
@@ -176,6 +184,9 @@
   function enableTootButton() {
     let tootButton = document.querySelector("#toot");
     tootButton.removeAttribute("disabled");
+  }
+
+  function clearWarningCount() {
     let words = document.querySelector("#words");
     words.style.color = "";
   }
