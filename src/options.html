@@ -20,7 +20,7 @@
         <label class="control-label">Instance URL</label>
         <div class="row">
           <div class="col-10">
-            <input type="url" id="domain" class="form-control" placeholder="https://mastodon.noraworld.jp" autocomplete="off" autofocus="on">
+            <input type="url" id="domain" class="form-control" placeholder="https://mastodon.noraworld.jp" autocomplete="off">
           </div>
           <div class="col">
             <button id="button" type="submit" class="btn btn-block btn-primary">Auth</button>
@@ -31,7 +31,7 @@
       <strong><p id="instance-url-msg"></p></strong>
     </form>
 
-    <label class="control-label">Visibility</label>
+    <label class="control-label">Default visibility</label>
     <div class="row">
       <div class="col">
         <select id="visibility" name="visibility">
@@ -46,9 +46,17 @@
     <div class="row">
       <div class="col-2">
         <button id="save" class="btn btn-block btn-primary">Save</button>
+      </div>
+      <div class="col">
         <strong><p id="status"></p></strong>
       </div>
     </div>
+
+    <h4>Recommendation</h4>
+    <p>Launch this extension with a keyboard shortcut by setting it from the bottom of the extensions page.</p>
+
+    <h4>Tips</h4>
+    <p>Press <code>command</code> and <code>enter</code>, or <code>control</code> and <code>enter</code> to toot at the popup.</p>
 
   </div>
 

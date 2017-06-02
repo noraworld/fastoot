@@ -39,7 +39,7 @@
     }, function() {
       let status = document.querySelector("#status");
       status.classList.add("text-success");
-      status.textContent = "Saved!";
+      status.textContent = "Saved successfully!";
       setTimeout(function() {
         status.textContent = "";
         status.classList.remove("text-success");

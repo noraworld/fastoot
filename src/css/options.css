@@ -23,12 +23,17 @@ label {
   opacity: 0.4;
 }
 
-#instance-url-msg, #status {
+#instance-url-msg {
   margin-top: 10px;
 }
 
 #save {
   margin-top: 30px;
+}
+
+#status {
+  margin-top: 37px;
+  margin-bottom: 0;
 }
 
 .input-group {
