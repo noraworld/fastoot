@@ -106,7 +106,11 @@
     }
 
     let isChecked = document.querySelector("#cw").checked;
-    if (isChecked) {
+    if (isChecked && spoiler === "") {
+      document.querySelector("#spoiler-text").style.border = "1px solid #d9534f";
+      return false;
+    }
+    else if (isChecked && spoiler !== "") {
       xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility + "&spoiler_text=" + encodeURIComponent(spoiler));
     }
     else {
@@ -143,6 +147,7 @@
     }
     else {
       hideSpoiler();
+      document.querySelector("#spoiler-text").style.border = "";
       document.querySelector("#cw-hide-area").style.height = "48px";
     }
   }
