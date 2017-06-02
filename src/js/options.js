@@ -55,7 +55,7 @@
     let domain = document.querySelector("#domain").value;
 
     if (domain !== "") {
-      // TODO: remove trailing slash
+      domain = removeTrailingSlash();
     }
     else {
       alert("Please set an instance");
@@ -135,6 +135,15 @@
         button.textContent = "Auth";
       }
     });
+  }
+
+  function removeTrailingSlash() {
+    let domain = document.querySelector("#domain").value;
+
+    domain = (domain[domain.length-1] === '/') ? domain.substr(0, domain.length-1) : domain;
+    document.querySelector("#domain").value = domain;
+
+    return domain;
   }
 
 })();
