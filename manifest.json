@@ -5,6 +5,12 @@
   "description": "Quickly post your status to Mastodon",
   "homepage_url": "https://github.com/noraworld/fastoot",
 
+  "icons": {
+    "16":  "img/mastodon16.png",
+    "48":  "img/mastodon48.png",
+    "128": "img/mastodon128.png"
+  },
+
   "permissions": [
     "storage"
   ],
