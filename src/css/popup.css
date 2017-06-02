@@ -1,4 +1,4 @@
-body, #content, #toot {
+body, #content, #toot, select {
   font-family: "BlinkMacSystemFont";
 }
 
@@ -8,10 +8,6 @@ body, #content, #toot {
 
 .row {
   margin: 15px 0;
-}
-
-textarea {
-  resize: none;
 }
 
 #content::-webkit-input-placeholder {
@@ -24,10 +20,6 @@ textarea {
 
 #toot {
   letter-spacing: 0.7px;
-}
-
-button {
-  cursor: pointer;
 }
 
 .pull-left {

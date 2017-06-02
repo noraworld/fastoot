@@ -6,14 +6,17 @@
     domain: "",
     token: {},
     draft: "",
+    visibility: "public",
   };
 
   chrome.storage.sync.get(settings, function(storage) {
     settings.domain = storage.domain;
     settings.token = storage.token;
     settings.draft = storage.draft;
+    settings.visibility = storage.visibility;
 
     document.querySelector("#content").value = settings.draft;
+    document.querySelector("#visibility").value = settings.visibility;
     init();
   });
 
@@ -49,6 +52,7 @@
     let url = settings.domain + "/api/v1/statuses";
     let token = settings.token;
     let content = document.querySelector("#content").value;
+    let visibility = document.querySelector("#visibility").value;
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -82,7 +86,7 @@
       }
     }
 
-    xhr.send("status=" + encodeURIComponent(content));
+    xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility);
   }
 
   function saveDraft() {

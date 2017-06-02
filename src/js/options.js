@@ -6,6 +6,7 @@
     domain: "",
     client: {},
     token: {},
+    visibility: "public",
   };
 
   load();
@@ -16,6 +17,7 @@
       if (storage.token.access_token) {
         document.querySelector("#button").textContent = "Reauth";
       }
+      document.querySelector("#visibility").value = storage.visibility;
     });
 
     document.querySelector("#auth").addEventListener("submit", function(event) {
@@ -24,7 +26,24 @@
     });
 
     document.querySelector("#domain").addEventListener("keydown", function(event) {
-      document.querySelector("#status").textContent = "";
+      document.querySelector("#instance-url-msg").textContent = "";
+    });
+
+    document.querySelector("#save").addEventListener("click", save);
+  }
+
+  function save() {
+    chrome.storage.sync.set({
+      domain: document.querySelector("#domain").value,
+      visibility: document.querySelector("#visibility").value
+    }, function() {
+      let status = document.querySelector("#status");
+      status.classList.add("text-success");
+      status.textContent = "Saved!";
+      setTimeout(function() {
+        status.textContent = "";
+        status.classList.remove("text-success");
+      }, 1500);
     });
   }
 
@@ -49,8 +68,8 @@
 
     xhr.onreadystatechange = function(event) {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        let status = document.querySelector("#status");
-        status.textContent = "";
+        let msg = document.querySelector("#instance-url-msg");
+        msg.textContent = "";
 
         let response = JSON.parse(xhr.response);
         chrome.storage.sync.set({
@@ -61,10 +80,10 @@
         });
       }
       else {
-        let status = document.querySelector("#status");
-        status.classList.remove("text-success");
-        status.classList.add("text-danger");
-        status.textContent = "An error occurred. Please check an instance URL.";
+        let msg = document.querySelector("#instance-url-msg");
+        msg.classList.remove("text-success");
+        msg.classList.add("text-danger");
+        msg.textContent = "An error occurred. Please check an instance URL.";
       }
 
     }

@@ -4,24 +4,52 @@
   <meta charset="utf-8">
   <title>Fastoot options</title>
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="stylesheet" type="text/css" href="options.css">
 </head>
 <body>
 
   <div class="container">
+
     <header>
       <h3>Fastoot</h3>
     </header>
 
-    <form id="auth" class="form-inline">
-      <div class="input-group col-10">
-        <div class="input-group-addon">Instance URL</div>
-        <input id="domain" type="url" class="form-control" placeholder="https://mastodon.noraworld.jp" autocomplete="off" autofocus="on">
+    <form id="auth">
+      <div class="form-group">
+        <label class="control-label">Instance URL</label>
+        <div class="row">
+          <div class="col-10">
+            <input type="url" id="domain" class="form-control" placeholder="https://mastodon.noraworld.jp" autocomplete="off" autofocus="on">
+          </div>
+          <div class="col">
+            <button id="button" type="submit" class="btn btn-block btn-primary">Auth</button>
+          </div>
+        </div>
       </div>
 
-      <button id="button" type="submit" class="btn btn-primary col">Auth</button>
-      <span id="status"></span>
+      <strong><p id="instance-url-msg"></p></strong>
     </form>
+
+    <label class="control-label">Visibility</label>
+    <div class="row">
+      <div class="col">
+        <select id="visibility" name="visibility">
+          <option value="public">public</option>
+          <option value="unlisted">unlisted</option>
+          <option value="private">private</option>
+          <option value="direct">direct</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <button id="save" class="btn btn-block btn-primary">Save</button>
+        <strong><p id="status"></p></strong>
+      </div>
+    </div>
+
   </div>
 
   <script type="text/javascript" src="options.js"></script>

@@ -2,7 +2,7 @@ body {
   margin-top: 30px;
 }
 
-.container, #domain, #button {
+.container, #domain, #button, #save, select {
   font-family: "BlinkMacSystemFont";
 }
 
@@ -14,16 +14,21 @@ header {
   margin-bottom: 20px;
 }
 
-button {
-  cursor: pointer;
+label {
+  font-weight: 700;
+  font-size: 14px;
 }
 
 #domain::-webkit-input-placeholder {
   opacity: 0.4;
 }
 
-#status {
+#instance-url-msg, #status {
   margin-top: 10px;
+}
+
+#save {
+  margin-top: 30px;
 }
 
 .input-group {

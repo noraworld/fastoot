@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="stylesheet" type="text/css" href="popup.css">
 </head>
 <body>
@@ -15,6 +16,14 @@
     <div class="row">
       <div class="col-12">
         <div class="clearfix">
+          <div class="pull-left">
+            <select id="visibility" name="visibility">
+              <option value="public">public</option>
+              <option value="unlisted">unlisted</option>
+              <option value="private">private</option>
+              <option value="direct">direct</option>
+            </select>
+          </div>
           <div class="pull-right">
             <strong><span id="status"></span></strong>
             <strong><span id="words"></span></strong>

@@ -1,0 +1,19 @@
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+textarea {
+  resize: none;
+}
+
+select {
+  height: 30px;
+}
+
+select:focus {
+  outline: none;
+}
