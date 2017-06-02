@@ -9,12 +9,14 @@
 <body>
 
   <div class="container">
-    <h3>Fastoot</h3>
+    <header>
+      <h3>Fastoot</h3>
+    </header>
 
     <form id="auth" class="form-inline">
       <div class="input-group col-10">
         <div class="input-group-addon">Instance URL</div>
-        <input id="domain" type="url" class="form-control" placeholder="https://mastodon.noraworld.jp">
+        <input id="domain" type="url" class="form-control" placeholder="https://mastodon.noraworld.jp" autocomplete="off" autofocus="on">
       </div>
 
       <button id="button" type="submit" class="btn btn-primary col">Auth</button>

@@ -1,5 +1,17 @@
 body {
-  margin-top: 20px;
+  margin-top: 30px;
+}
+
+.container, #domain, #button {
+  font-family: "BlinkMacSystemFont";
+}
+
+.container {
+  width: 800px;
+}
+
+header {
+  margin-bottom: 20px;
 }
 
 button {
@@ -10,8 +22,8 @@ button {
   opacity: 0.4;
 }
 
-.container {
-  width: 800px;
+#status {
+  margin-top: 10px;
 }
 
 .input-group {

@@ -1,3 +1,7 @@
+body, #content, #toot {
+  font-family: "BlinkMacSystemFont";
+}
+
 .container {
   width: 600px;
 }
@@ -12,6 +16,14 @@ textarea {
 
 #content::-webkit-input-placeholder {
   opacity: 0.4;
+}
+
+#words {
+  padding-right: 10px;
+}
+
+#toot {
+  letter-spacing: 0.7px;
 }
 
 button {
