@@ -143,17 +143,15 @@
     let isChecked = document.querySelector("#cw").checked;
     if (isChecked) {
       showSpoiler();
-      document.querySelector("#cw-hide-area").style.height = "0";
     }
     else {
       hideSpoiler();
-      document.querySelector("#spoiler-text").style.border = "";
-      document.querySelector("#cw-hide-area").style.height = "48px";
     }
   }
 
   function showSpoiler() {
     document.querySelector("#spoiler-text").style.display = "block";
+    document.querySelector("#cw-hide-area").style.height = "0";
   }
 
   function hideSpoiler() {
@@ -161,6 +159,8 @@
     count();
     validateCount();
     document.querySelector("#spoiler-text").style.display = "none";
+    document.querySelector("#spoiler-text").style.border = "";
+    document.querySelector("#cw-hide-area").style.height = "48px";
   }
 
   function disableTootButton() {
