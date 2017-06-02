@@ -14,15 +14,15 @@
   function load() {
     chrome.storage.sync.get(defaults, function(storage) {
       document.querySelector("#domain").value = storage.domain;
-      if (storage.token.access_token) {
-        document.querySelector("#button").textContent = "Reauth";
-      }
+
+      toggleAuthAndRevoke();
+
       document.querySelector("#visibility").value = storage.visibility;
     });
 
     document.querySelector("#auth").addEventListener("submit", function(event) {
-      event.preventDefault();
-      getAuthorizationCode();
+      selectOperationAuthOrRevoke();
+      toggleAuthAndRevoke();
     });
 
     document.querySelector("#domain").addEventListener("keydown", function(event) {
@@ -87,6 +87,54 @@
       }
 
     }
+  }
+
+  function revokeAuthorizationCode() {
+    chrome.storage.sync.set({
+      token: {}
+    }, function() {
+      let msg = document.querySelector("#instance-url-msg");
+      msg.classList.remove("text-danger");
+      msg.classList.add("text-success");
+      msg.textContent = "Revoke successfully";
+
+      setTimeout(function() {
+        msg.classList.remove("text-success");
+        msg.textContent = "";
+      }, 1500);
+    });
+  }
+
+  function selectOperationAuthOrRevoke() {
+    let button = document.querySelector("#button");
+
+    if (button.textContent === "Auth") {
+      event.preventDefault();
+      getAuthorizationCode();
+    }
+    else if (button.textContent === "Revoke") {
+      event.preventDefault();
+      revokeAuthorizationCode();
+    }
+  }
+
+  function toggleAuthAndRevoke() {
+    chrome.storage.sync.get(defaults, function(storage) {
+      if (storage.token.access_token) {
+        let button = document.querySelector("#button");
+
+        button.classList.remove("btn-primary");
+        button.classList.add("btn-danger");
+        button.textContent = "Revoke";
+      }
+      else {
+        let button = document.querySelector("#button");
+
+        button.classList.remove("btn-danger");
+        button.classList.add("btn-primary");
+        button.textContent = "Auth";
+      }
+    });
   }
 
 })();
