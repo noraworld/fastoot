@@ -1,6 +1,6 @@
 {
   "name": "Fastoot",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Quickly post your status to Mastodon",
   "main": "index.js",
   "scripts": {
