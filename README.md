@@ -13,7 +13,7 @@ $ npm install
 $ npm install -g gulp
 ```
 
-Run a task
+Run a task:
 
 ```sh
 $ gulp
