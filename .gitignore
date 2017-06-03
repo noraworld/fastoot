@@ -1,12 +1,6 @@
 node_modules
 src/lib
-/bootstrap.min.css
-/options.html
-/options.js
-/popup.html
-/popup.js
-/popup.css
-/auth.html
-/auth.js
-/options.css
-/main.css
+/*.html
+/*.css
+/*.js
+!gulpfile.js
