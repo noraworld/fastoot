@@ -35,6 +35,12 @@
             window.location.href = chrome.extension.getURL("options.html");
           });
         }
+        else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 400 && xhr.status < 600) {
+          document.querySelector("#error").innerHTML = 'If you see this page, something went wrong. Please go back to <a href="/options.html">options page</a>, and try again.';
+        }
+        else {
+          // this may be OPTIONS method
+        }
       }
 
     });

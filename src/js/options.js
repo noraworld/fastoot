@@ -79,11 +79,15 @@
           window.location.href = domain + "/oauth/authorize?client_id=" + response.client_id + "&response_type=code&redirect_uri=" + response.redirect_uri + "&scope=" + scope;
         });
       }
-      else {
+      else if ((xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 400 && xhr.status < 600) || (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 0)) {
         let msg = document.querySelector("#instance-url-msg");
+
         msg.classList.remove("text-success");
         msg.classList.add("text-danger");
         msg.textContent = "An error occurred. Please check an instance URL.";
+      }
+      else {
+        // this may be OPTIONS method
       }
 
     }
