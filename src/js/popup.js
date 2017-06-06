@@ -93,7 +93,7 @@
         status.classList.add("text-success");
         status.textContent = "Tooted successfully!";
 
-        enableTootButton();
+        validateCount();
 
         setTimeout(function() {
           status.textContent = "";
@@ -112,7 +112,7 @@
           status.innerHTML = 'Auth this app from <a href="/options.html" target="_blank">options page</a>';
         }
 
-        enableTootButton();
+        validateCount();
       }
       else {
         // this may be OPTIONS method
