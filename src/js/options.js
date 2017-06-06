@@ -34,7 +34,6 @@
 
   function save() {
     chrome.storage.local.set({
-      domain: document.querySelector("#domain").value,
       visibility: document.querySelector("#visibility").value
     }, function() {
       let status = document.querySelector("#status");
