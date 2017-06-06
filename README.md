@@ -1,6 +1,8 @@
 # Fastoot
 A Chrome Extension that posts quickly your status to Mastodon.
 
+![Fastoot](https://raw.githubusercontent.com/noraworld/fastoot/master/img/fastoot_screenshot.png)
+
 ## Install
 [Fastoot - Chrome Web Store](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)
 
