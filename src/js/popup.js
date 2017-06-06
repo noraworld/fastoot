@@ -35,6 +35,10 @@
       if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter' && tootable()) {
         toot();
       }
+      else if (event.metaKey && event.ctrlKey && event.keyCode === 32) {
+        event.preventDefault();
+      }
+
       refleshStatus();
     });
   }

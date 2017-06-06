@@ -2,15 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="normalize.min.css">
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="stylesheet" type="text/css" href="wdt-emoji-bundle.css">
+  <link rel="stylesheet" type="text/css" href="emoji.css">
 </head>
 <body>
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <textarea id="content" class="form-control" rows="10" placeholder="What is on your mind?" spellcheck="false"></textarea>
+        <textarea id="content" class="form-control wdt-emoji-bundle-enabled wdt-emoji-open-on-colon" rows="16" placeholder="What is on your mind?" spellcheck="false"></textarea>
       </div>
       <div class="col-12">
         <div id="cw-hide-area"></div>
@@ -41,6 +44,49 @@
     </div>
   </div>
 
+  <div class="wdt-emoji-popup">
+    <a href="#" class="wdt-emoji-popup-mobile-closer"> &times; </a>
+    <div class="wdt-emoji-menu-content">
+      <div id="wdt-emoji-menu-header">
+        <a class="wdt-emoji-tab active" data-group-name="Recent"></a>
+        <a class="wdt-emoji-tab" data-group-name="People"></a>
+        <a class="wdt-emoji-tab" data-group-name="Nature"></a>
+        <a class="wdt-emoji-tab" data-group-name="Foods"></a>
+        <a class="wdt-emoji-tab" data-group-name="Activity"></a>
+        <a class="wdt-emoji-tab" data-group-name="Places"></a>
+        <a class="wdt-emoji-tab" data-group-name="Objects"></a>
+        <a class="wdt-emoji-tab" data-group-name="Symbols"></a>
+        <a class="wdt-emoji-tab" data-group-name="Flags"></a>
+        <a class="wdt-emoji-tab" data-group-name="Custom"></a>
+      </div>
+      <div class="wdt-emoji-scroll-wrapper">
+        <div id="wdt-emoji-menu-items">
+          <input id="wdt-emoji-search" type="text" placeholder="Search">
+          <h3 id="wdt-emoji-search-result-title">Search Results</h3>
+          <div class="wdt-emoji-sections"></div>
+          <div id="wdt-emoji-no-result">No emoji found</div>
+        </div>
+      </div>
+      <div id="wdt-emoji-footer">
+        <div id="wdt-emoji-preview">
+          <span id="wdt-emoji-preview-img"></span>
+          <div id="wdt-emoji-preview-text">
+            <span id="wdt-emoji-preview-name"></span>
+            <br>
+            <span id="wdt-emoji-preview-aliases"></span>
+          </div>
+        </div>
+
+        <div id="wdt-emoji-preview-bundle">
+          <span>WDT Emoji Bundle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="emoji.min.js"></script>
+  <script type="text/javascript" src="wdt-emoji-bundle.min.js"></script>
+  <script type="text/javascript" src="emoji.js"></script>
   <script type="text/javascript" src="popup.js"></script>
 </body>
 </html>

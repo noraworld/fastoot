@@ -1,0 +1,12 @@
+body {
+  overflow-y: scroll;
+}
+
+.form-control {
+  padding-right: 27px;
+}
+
+.wdt-emoji-picker {
+  top: 4px;
+  right: 25px;
+}
