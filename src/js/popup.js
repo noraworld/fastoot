@@ -32,7 +32,7 @@
       saveDraft();
     });
     document.addEventListener("keydown", function(event) {
-      if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter' && validateCount() && validateFocus()) {
+      if (((event.ctrlKey && !event.metaKey) || (event.metaKey && !event.ctrlKey)) && event.key === 'Enter' && tootable()) {
         toot();
       }
       refleshStatus();
@@ -59,6 +59,7 @@
     }
     else if (content <= 0) {
       disableTootButton();
+      return false;
     }
     else {
       enableTootButton();
@@ -92,21 +93,29 @@
         status.classList.add("text-success");
         status.textContent = "Tooted successfully!";
 
+        enableTootButton();
+
         setTimeout(function() {
           status.textContent = "";
           status.classList.remove("text-success");
         }, 1500);
       }
-      else {
+      else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 400 && xhr.status < 600) {
         let status = document.querySelector("#status");
         status.classList.remove("text-success");
         status.classList.add("text-danger");
+
         if (settings.token.access_token) {
           status.textContent = "Toot failed";
         }
         else {
           status.innerHTML = 'Auth this app from <a href="/options.html" target="_blank">options page</a>';
         }
+
+        enableTootButton();
+      }
+      else {
+        // this may be OPTIONS method
       }
     }
 
@@ -116,9 +125,11 @@
       return false;
     }
     else if (isChecked && spoiler !== "") {
+      disableTootButton();
       xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility + "&spoiler_text=" + encodeURIComponent(spoiler));
     }
     else {
+      disableTootButton();
       xhr.send("status=" + encodeURIComponent(content) + "&visibility=" + visibility);
     }
 
@@ -173,17 +184,34 @@
     tootButton.setAttribute("disabled", "");
   }
 
+  function enableTootButton() {
+    let tootButton = document.querySelector("#toot");
+    tootButton.removeAttribute("disabled");
+  }
+
+  function tootable() {
+    let tootButton = document.querySelector("#toot");
+
+    if (validateCount === false) {
+      return false;
+    }
+    else if (validateFocus === false) {
+      return false;
+    }
+    else if (tootButton.getAttribute("disabled") !== null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   function warningCount() {
     let words = document.querySelector("#words");
 
     if (words.textContent !== "500") {
       words.style.color = "#d9534f";
     }
-  }
-
-  function enableTootButton() {
-    let tootButton = document.querySelector("#toot");
-    tootButton.removeAttribute("disabled");
   }
 
   function clearWarningCount() {
