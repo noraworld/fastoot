@@ -37,6 +37,8 @@
       }
       else if (event.metaKey && event.ctrlKey && event.keyCode === 32) {
         event.preventDefault();
+        document.querySelector(".wdt-emoji-picker").click();
+        document.querySelector("#wdt-emoji-search").focus();
       }
 
       refleshStatus();
