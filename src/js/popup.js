@@ -44,8 +44,8 @@
   }
 
   function count() {
-    let content = document.querySelector("#content").value;
-    let spoiler = document.querySelector("#spoiler-text").value;
+    let content = stringToArray(document.querySelector("#content").value);
+    let spoiler = stringToArray(document.querySelector("#spoiler-text").value);
     let left = 500 - (content.length + spoiler.length);
 
     document.querySelector("#words").textContent = left;
@@ -228,6 +228,10 @@
     status.textContent = "";
     status.classList.remove("text-success");
     status.classList.remove("text-danger");
+  }
+
+  function stringToArray(str) {
+    return str.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]/g) || [];
   }
 
 })();
