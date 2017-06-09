@@ -43,6 +43,9 @@
 
       refleshStatus();
     });
+    document.querySelector(".wdt-emoji-picker").addEventListener("click", function() {
+      document.querySelector("#wdt-emoji-search").focus();
+    });
   }
 
   function count() {
