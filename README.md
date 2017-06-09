@@ -3,7 +3,7 @@ A Chrome Extension that posts quickly your status to Mastodon.
 
 ![Fastoot](https://raw.githubusercontent.com/noraworld/fastoot/master/img/fastoot_screenshot.png)
 
-[noraworld/wdt-emoji-bundle](https://github.com/noraworld/wdt-emoji-bundle) is used in this project, forked by [needim/wdt-emoji-bundle](https://github.com/needim/wdt-emoji-bundle):pray:
+[noraworld/wdt-emoji-bundle](https://github.com/noraworld/wdt-emoji-bundle) is used in this project, forked from [needim/wdt-emoji-bundle](https://github.com/needim/wdt-emoji-bundle):pray:
 
 ## Install
 [Fastoot - Chrome Web Store](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)
