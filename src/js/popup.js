@@ -21,6 +21,7 @@
   });
 
   function init() {
+    document.querySelector("#content").focus();
     count();
     validateCount();
 
