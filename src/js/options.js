@@ -7,6 +7,7 @@
     client: {},
     token: {},
     visibility: "public",
+    emoji: "unicode",
   };
 
   load();
@@ -18,6 +19,7 @@
       toggleAuthAndRevoke();
 
       document.querySelector("#visibility").value = storage.visibility;
+      document.emoji.emoji.value = storage.emoji;
     });
 
     document.querySelector("#auth").addEventListener("submit", function(event) {
@@ -34,7 +36,8 @@
 
   function save() {
     chrome.storage.local.set({
-      visibility: document.querySelector("#visibility").value
+      visibility: document.querySelector("#visibility").value,
+      emoji:      document.emoji.emoji.value
     }, function() {
       let status = document.querySelector("#status");
       status.classList.add("text-success");

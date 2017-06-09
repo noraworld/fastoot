@@ -43,6 +43,16 @@
       </div>
     </div>
 
+    <label class="control-label">Emoji</label>
+    <div class="row">
+      <div class="col">
+        <form name="emoji">
+          <input type="radio" name="emoji" value="unicode" checked=""><span>Unicode</span>
+          <input type="radio" name="emoji" value="shortnames"><span>Shortnames</span>
+        </form>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-2">
         <button id="save" class="btn btn-block btn-primary">Save</button>
@@ -55,8 +65,29 @@
     <h4>Recommendation</h4>
     <p>Set a keyboard shortcut from the bottom of the extensions page to launch this extension easily.</p>
 
-    <h4>Tips</h4>
-    <p>Press <code>command</code> and <code>enter</code>, or <code>control</code> and <code>enter</code> to toot at the popup.</p>
+    <h4>Shortcuts</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>command</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>command</code> + <code>enter</code>
+            <br>
+            <code>control</code> + <code>enter</code>
+          </td>
+          <td>post a toot</td>
+        </tr>
+        <tr>
+          <td><code>command</code> + <code>control</code> + <code>space</code></td>
+          <td>open emoji picker</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 

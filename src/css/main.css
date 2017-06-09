@@ -18,6 +18,14 @@ select:focus {
   outline: none;
 }
 
+input[type=radio] {
+  margin-right: 5px;
+}
+
+input[type=radio] + span {
+  margin-right: 20px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 30px;
 }

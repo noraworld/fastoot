@@ -17,6 +17,7 @@ header {
 label {
   font-weight: 700;
   font-size: 14px;
+  margin-top: 15px;
 }
 
 #domain::-webkit-input-placeholder {
