@@ -1,37 +1,19 @@
 # Fastoot
 A Chrome Extension that posts quickly your status to Mastodon.
 
-![Fastoot](https://raw.githubusercontent.com/noraworld/fastoot/master/img/fastoot_screenshot.png)
+![Fastoot](https://raw.githubusercontent.com/noraworld/fastoot/master/screenshot.png)
 
 [noraworld/wdt-emoji-bundle](https://github.com/noraworld/wdt-emoji-bundle) is used in this project, forked from [needim/wdt-emoji-bundle](https://github.com/needim/wdt-emoji-bundle):pray:
 
-## Install
+## Installation
 [Fastoot - Chrome Web Store](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)
 
-## Developer install
+## For developer dependencies
 
-```sh
-$ git clone https://github.com/noraworld/fastoot
-$ cd fastoot
-$ npm install
-$ npm install -g gulp
-```
-
-Run a task:
-
-```sh
-$ gulp
-```
-
-## Dependencies
-
-* node v6.10.3
-* npm 3.10.10
-* gulp v3.9.1
 * bootstrap v4.0.0-alpha.6
 * wdt-emoji-bundle
 
-[Download Bootstrap](https://github.com/twbs/bootstrap/releases/download/v4.0.0-alpha.6/bootstrap-4.0.0-alpha.6-dist.zip) and put `bootstrap.min.css` under `src/lib`. You need to make `src/lib` directory before putting the file.
+[Download Bootstrap](https://github.com/twbs/bootstrap/releases/download/v4.0.0-alpha.6/bootstrap-4.0.0-alpha.6-dist.zip) and put `bootstrap.min.css` under `src/lib`.
 
 Download wdt-emoji-bundle by entering the following commands.
 
