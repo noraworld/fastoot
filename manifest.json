@@ -16,13 +16,13 @@
   ],
 
   "browser_action": {
-    "default_title": "fastoot",
-    "default_popup": "popup.html"
+    "default_title": "Fastoot",
+    "default_popup": "src/popup.html"
   },
 
-  "options_page": "options.html",
+  "options_page": "src/options.html",
 
   "web_accessible_resources": [
-    "auth.html"
+    "src/auth.html"
   ]
 }
