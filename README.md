@@ -8,7 +8,7 @@ A Chrome Extension that posts quickly your status to Mastodon.
 ## Installation
 [Fastoot - Chrome Web Store](https://chrome.google.com/webstore/detail/fastoot/hnmnnhfeigiogjagmmpnhelpnhnchaoj)
 
-## For developer dependencies
+## Dependencies for developer
 
 * bootstrap v4.0.0-alpha.6
 * wdt-emoji-bundle
