@@ -17,12 +17,12 @@
 
   "browser_action": {
     "default_title": "Fastoot",
-    "default_popup": "src/popup.html"
+    "default_popup": "popup.html"
   },
 
-  "options_page": "src/options.html",
+  "options_page": "options.html",
 
   "web_accessible_resources": [
-    "src/auth.html"
+    "auth.html"
   ]
 }

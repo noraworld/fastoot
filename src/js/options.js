@@ -52,7 +52,7 @@
   function getAuthorizationCode() {
     let xhr = new XMLHttpRequest();
     const clientName = "Fastoot";
-    const redirectURI = chrome.extension.getURL("src/auth.html");
+    const redirectURI = chrome.extension.getURL("./auth.html");
     const scope = "write";
     const website = "https://github.com/noraworld/fastoot"
     let domain = document.querySelector("#domain").value;
