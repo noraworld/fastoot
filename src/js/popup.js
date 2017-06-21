@@ -119,7 +119,7 @@
           status.textContent = "Toot failed";
         }
         else {
-          status.innerHTML = 'Auth this app from <a href="/options.html" target="_blank">options page</a>';
+          status.innerHTML = 'Auth this app from <a href="src/options.html" target="_blank">options page</a>';
         }
 
         validateCount();

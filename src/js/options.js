@@ -52,8 +52,9 @@
   function getAuthorizationCode() {
     let xhr = new XMLHttpRequest();
     const clientName = "Fastoot";
-    const redirectURI = chrome.extension.getURL("auth.html");
+    const redirectURI = chrome.extension.getURL("src/auth.html");
     const scope = "write";
+    const website = "https://github.com/noraworld/fastoot"
     let domain = document.querySelector("#domain").value;
 
     if (domain !== "") {
@@ -66,7 +67,7 @@
 
     xhr.open("POST", domain + "/api/v1/apps", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    xhr.send("client_name=" + clientName + "&redirect_uris=" + redirectURI + "&scopes=" + scope);
+    xhr.send("client_name=" + clientName + "&redirect_uris=" + redirectURI + "&scopes=" + scope + "&website=" + website);
 
     xhr.onreadystatechange = function(event) {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {

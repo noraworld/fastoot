@@ -11,7 +11,7 @@
     getAccessToken();
   }
   else {
-    document.querySelector("#error").innerHTML = 'If you see this page, something went wrong. Please go back to <a href="/options.html">options page</a>, and try again.';
+    document.querySelector("#error").innerHTML = 'If you see this page, something went wrong. Please go back to <a href="src/options.html">options page</a>, and try again.';
   }
 
   function getAccessToken() {
@@ -32,11 +32,11 @@
           chrome.storage.local.set({
             token: JSON.parse(xhr.response)
           }, function() {
-            window.location.href = chrome.extension.getURL("options.html");
+            window.location.href = chrome.extension.getURL("src/options.html");
           });
         }
         else if (xhr.readyState === XMLHttpRequest.DONE && xhr.status >= 400 && xhr.status < 600) {
-          document.querySelector("#error").innerHTML = 'If you see this page, something went wrong. Please go back to <a href="/options.html">options page</a>, and try again.';
+          document.querySelector("#error").innerHTML = 'If you see this page, something went wrong. Please go back to <a href="src/options.html">options page</a>, and try again.';
         }
         else {
           // this may be OPTIONS method
