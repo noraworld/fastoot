@@ -42,7 +42,9 @@
         document.querySelector("#wdt-emoji-search").focus();
       }
 
-      refleshStatus();
+      if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
+        refleshStatus();
+      }
     });
     document.querySelector(".wdt-emoji-picker").addEventListener("click", function() {
       document.querySelector("#wdt-emoji-search").focus();
@@ -85,6 +87,15 @@
     let content = document.querySelector("#content").value;
     let visibility = document.querySelector("#visibility").value;
     let spoiler = document.querySelector("#spoiler-text").value;
+
+    if (!settings.token.access_token) {
+      let status = document.querySelector("#status");
+      status.classList.remove("text-success");
+      status.classList.add("text-danger");
+
+      status.innerHTML = 'Auth this app from <a href="./options.html" target="_blank">options page</a>';
+      return false;
+    }
 
     xhr.open("POST", url, true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
@@ -202,10 +213,10 @@
   function tootable() {
     let tootButton = document.querySelector("#toot");
 
-    if (validateCount === false) {
+    if (validateCount() === false) {
       return false;
     }
-    else if (validateFocus === false) {
+    else if (validateFocus() === false) {
       return false;
     }
     else if (tootButton.getAttribute("disabled") !== null) {
